@@ -31,6 +31,7 @@ __meta__ = {
 visibility/opacity = 0.3
 transform/pos = Vector2( -85, 0 )
 transform/scale = Vector2( 0.4, 1 )
+z/z = 50
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -41,6 +42,7 @@ __meta__ = {
 visibility/opacity = 0.3
 transform/pos = Vector2( 85, 0 )
 transform/scale = Vector2( 0.4, 1 )
+z/z = 50
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -59,9 +61,5 @@ transform/pos = Vector2( 85, 0 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 1
-
-[connection signal="area_enter" from="." to="." method="_on_visionarea_area_enter"]
-
-[connection signal="body_enter" from="." to="." method="_on_visionarea_body_enter"]
 
 

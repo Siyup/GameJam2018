@@ -10,6 +10,7 @@ extents = Vector2( 22.0888, 29.4545 )
 
 [node name="player" type="KinematicBody2D"]
 
+process/pause_mode = 1
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -18,7 +19,10 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-speed = 5
+__meta__ = {
+"_edit_group_": true
+}
+speed = 3
 
 [node name="sprite" type="Sprite" parent="."]
 

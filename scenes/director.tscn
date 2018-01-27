@@ -1,21 +1,41 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/director.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemy.jpg" type="Texture" id=2]
+[ext_resource path="res://scenes/visionarea.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 26.8493, 30.4884 )
 
 [node name="director" type="KinematicBody2D"]
 
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 speed = 20
 radius = 50
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="main_sprite" type="Sprite" parent="."]
 
 transform/scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 2 )
+
+[node name="visionarea" parent="." instance=ExtResource( 3 )]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 

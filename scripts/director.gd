@@ -7,7 +7,7 @@ var player
 var playerInRange = false
 export var speed = 40
 export var rageSpeed = 200
-export var radius = 120
+export var radius = 500
 signal game_over
 
 func _ready():

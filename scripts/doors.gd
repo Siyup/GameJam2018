@@ -11,7 +11,6 @@ func set_teleport_location(pos):
 	pass
 
 func _on_doors_body_enter( body ):
-	print('iejo')
-	print(get_pos())
-	emit_signal("doors_available", body, self)
+	if not body.get_groups().has("enemy"):
+		emit_signal("doors_available", body, self)
 	pass # replace with function body

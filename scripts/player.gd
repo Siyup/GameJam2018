@@ -1,10 +1,9 @@
 extends KinematicBody2D
-
-export var speed = 70
+export var speed = 120
 signal game_over
-var current_doors
+signal pause
+var current_doors = null
 var locker_available = false
-var teleported = false
 var doors_available = false
 var count = 20
 
@@ -13,6 +12,8 @@ func _ready():
 	pass
 
 func _fixed_process(delta):
+	if Input.is_action_pressed("pause"):
+		emit_signal("pause")
 	if locker_available:
 		if Input.is_action_pressed("interact") && count >= 20:
 			if is_visible():
@@ -20,10 +21,9 @@ func _fixed_process(delta):
 			else:
 				show()
 			count = 0
-	if doors_available || teleported:
+	if doors_available || (current_doors != null && (current_doors.get_pos().x + 5 >= get_pos().x && current_doors.get_pos().x - 5 <= get_pos().x)):
 		if Input.is_action_pressed("interact") && count >= 10:
 			set_pos(current_doors.teleport_location)
-			teleported = true
 			count = 0
 	count += 1
 	if is_visible():

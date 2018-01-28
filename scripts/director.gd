@@ -5,12 +5,15 @@ var dir = 1
 var alert = false
 var player
 var playerInRange = false
-export var speed = 40
+var speed = 40
+export var initialSpeed = 40
 export var rageSpeed = 200
 export var radius = 500
 signal game_over
 
 func _ready():
+	speed = initialSpeed
+	add_to_group("enemy")
 	initial_pos = get_pos()
 	get_node("visionarea").connect("body_enter", self, "on_vision")
 	get_node("visionarea").connect("body_exit", self, "on_vision_end")

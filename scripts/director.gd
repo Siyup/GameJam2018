@@ -34,9 +34,11 @@ func _fixed_process(delta):
 	if alert:
 		var player_pos = player.get_pos()
 		var newDir = Vector2(player_pos.x - get_pos().x, 0).normalized()
+		get_node("rage_sprite").show()
 		move(Vector2(motion*newDir.x, 0))
 	else:
 		move(Vector2(motion * dir, 0))
+		get_node("rage_sprite").hide()
 	pass
 
 func on_vision(body):

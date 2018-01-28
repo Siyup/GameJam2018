@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/director.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemy.jpg" type="Texture" id=2]
 [ext_resource path="res://scenes/visionarea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/enemycollision.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/diriksQuestionMark.png" type="Texture" id=5]
 
 [node name="director" type="KinematicBody2D"]
 
@@ -16,7 +17,7 @@ script/script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-speed = 40
+initialSpeed = 40
 rageSpeed = 200
 radius = 120
 
@@ -29,5 +30,13 @@ texture = ExtResource( 2 )
 [node name="visionarea" parent="." instance=ExtResource( 3 )]
 
 [node name="enemycollision" parent="." instance=ExtResource( 4 )]
+
+[node name="rage_sprite" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 31.0506, -38.6196 )
+transform/scale = Vector2( 0.03, 0.03 )
+z/z = 10
+texture = ExtResource( 5 )
 
 

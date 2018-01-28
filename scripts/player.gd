@@ -28,6 +28,15 @@ func _fixed_process(delta):
 	count += 1
 	if is_visible():
 		var dir = Input.is_action_pressed("move_right") - Input.is_action_pressed("move_left")
+		if dir == 1:
+			get_node("main_sprite").play("walk")
+			get_node("main_sprite").set_flip_h(true)
+		elif dir == -1:
+			get_node("main_sprite").play("walk")
+			get_node("main_sprite").set_flip_h(false)
+		else:
+			get_node("main_sprite").stop()
+			get_node("main_sprite").set_frame(0)
 		var motion = move(Vector2(dir*speed*delta, 0))
 	if is_colliding():
 		emit_signal("game_over")

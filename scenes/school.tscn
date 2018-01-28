@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/school.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -10,7 +10,9 @@
 [ext_resource path="res://sprites/lempa.png" type="Texture" id=8]
 [ext_resource path="res://sprites/bell.png" type="Texture" id=9]
 [ext_resource path="res://sprites/cactus.png" type="Texture" id=10]
-[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/vazonas.png" type="Texture" id=11]
+[ext_resource path="res://sprites/langas_small.png" type="Texture" id=12]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=13]
 
 [node name="school" type="Node"]
 
@@ -27,12 +29,16 @@ speed = 120
 transform/pos = Vector2( 551.206, 356.169 )
 transform/scale = Vector2( 1.51968, 2.0822 )
 one_way_collision/direction = Vector2( 0, 0 )
-initialSpeed = 40
+radius = 500
+
+[node name="director1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 496.32, 594.899 )
+transform/scale = Vector2( 1.51968, 2.0822 )
+one_way_collision/direction = Vector2( 0, 0 )
 radius = 500
 
 [node name="lockers container" type="Node" parent="."]
-
-editor/display_folded = true
 
 [node name="locker" parent="lockers container" instance=ExtResource( 4 )]
 
@@ -46,7 +52,17 @@ transform/pos = Vector2( 434.889, 323.201 )
 
 transform/pos = Vector2( 1016.77, 323 )
 
+[node name="locker3" parent="lockers container" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 798.412, 551.459 )
+
+[node name="locker4" parent="lockers container" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 395.454, 550.459 )
+
 [node name="doors container" type="Node" parent="."]
+
+editor/display_folded = true
 
 [node name="doors" parent="doors container" instance=ExtResource( 5 )]
 
@@ -70,8 +86,6 @@ teleport_location = Vector2( 139, 641 )
 [node name="background container" type="Node" parent="."]
 
 [node name="lockers" type="Node" parent="background container"]
-
-editor/display_folded = true
 
 [node name="locker" type="Sprite" parent="background container/lockers"]
 
@@ -127,9 +141,37 @@ transform/pos = Vector2( 1079.66, 323 )
 transform/scale = Vector2( 0.85, 0.85 )
 texture = ExtResource( 6 )
 
-[node name="backgrounds" type="Node" parent="background container"]
+[node name="locker9" type="Sprite" parent="background container/lockers"]
 
-editor/display_folded = true
+transform/pos = Vector2( 924.768, 551.459 )
+transform/scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 6 )
+
+[node name="locker10" type="Sprite" parent="background container/lockers"]
+
+transform/pos = Vector2( 861.201, 551.51 )
+transform/scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 6 )
+
+[node name="locker11" type="Sprite" parent="background container/lockers"]
+
+transform/pos = Vector2( 735.168, 551.409 )
+transform/scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 6 )
+
+[node name="locker12" type="Sprite" parent="background container/lockers"]
+
+transform/pos = Vector2( 520.961, 550.611 )
+transform/scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 6 )
+
+[node name="locker13" type="Sprite" parent="background container/lockers"]
+
+transform/pos = Vector2( 458.394, 550.56 )
+transform/scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 6 )
+
+[node name="backgrounds" type="Node" parent="background container"]
 
 [node name="background" parent="background container/backgrounds" instance=ExtResource( 7 )]
 
@@ -192,6 +234,8 @@ texture = ExtResource( 9 )
 
 [node name="plants" type="Node" parent="background container"]
 
+editor/display_folded = true
+
 [node name="plant" type="Sprite" parent="background container/plants"]
 
 transform/pos = Vector2( 858.445, 130.465 )
@@ -204,11 +248,51 @@ transform/pos = Vector2( 231.353, 582.608 )
 transform/scale = Vector2( 0.035, 0.035 )
 texture = ExtResource( 10 )
 
+[node name="plant_2" type="Sprite" parent="background container/plants"]
+
+transform/pos = Vector2( 62.8105, 364.025 )
+transform/scale = Vector2( 0.035, 0.035 )
+texture = ExtResource( 11 )
+
+[node name="plant_3" type="Sprite" parent="background container/plants"]
+
+transform/pos = Vector2( 1166.89, 367.247 )
+transform/scale = Vector2( 0.035, 0.035 )
+texture = ExtResource( 11 )
+
+[node name="windows" type="Node" parent="background container"]
+
+editor/display_folded = true
+
+[node name="window" type="Sprite" parent="background container/windows"]
+
+transform/pos = Vector2( 1172.86, 296.502 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+
+[node name="window1" type="Sprite" parent="background container/windows"]
+
+transform/pos = Vector2( 41.5998, 525.227 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+
+[node name="window2" type="Sprite" parent="background container/windows"]
+
+transform/pos = Vector2( 41.5998, 293.411 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+
+[node name="window3" type="Sprite" parent="background container/windows"]
+
+transform/pos = Vector2( 1036.15, 525.684 )
+transform/scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+
 [node name="Position2D" type="Position2D" parent="."]
 
 transform/pos = Vector2( 147.853, 641.391 )
 transform/scale = Vector2( 5.2651, 3.63547 )
 
-[node name="HUD" parent="." instance=ExtResource( 11 )]
+[node name="HUD" parent="." instance=ExtResource( 13 )]
 
 

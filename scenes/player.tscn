@@ -18,7 +18,7 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walk",
-"speed": 5.0
+"speed": 7.0
 } ]
 
 [node name="player" type="KinematicBody2D"]
@@ -46,12 +46,13 @@ _update_shape_index = 0
 transform/scale = Vector2( 0.05, 0.05 )
 frames = SubResource( 2 )
 animation = "walk"
+frame = 1
 flip_h = true
 
 [node name="letter_sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( -27.926, 6.6549 )
-transform/rot = -55.0
+transform/pos = Vector2( 27.5123, 6.7 )
+transform/rot = 55.0
 transform/scale = Vector2( 0.03, 0.03 )
 texture = ExtResource( 6 )
 

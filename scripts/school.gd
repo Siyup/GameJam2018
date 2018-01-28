@@ -3,11 +3,12 @@ extends Node
 func _ready():
 	get_node("player").connect("game_over", self, "on_game_over")
 	get_node("player").connect("pause", self, "on_pause")
+	get_node("player").connect("game_win", self, "on_game_win")
 	get_node("HUD").get_node("game_over").get_node("play_again").connect("button_down", self, "on_restart")
 	get_node("director").connect("game_over", self, "on_game_over")
 	get_node("director").get_node("enemycollision").connect("body_enter", self, "on_game_over")
 	for locker in get_node("lockers container").get_children():
-		locker.connect("body_enter", get_node("player"), "on_locker_available")
+		locker.connect("locker_available", get_node("player"), "on_locker_available")
 		locker.connect("body_exit", get_node("player"), "on_locker_not_available")
 	for doors in get_node("doors container").get_children():
 		doors.connect("doors_available", get_node("player"), "on_doors_available")
@@ -38,4 +39,8 @@ func on_restart():
 
 func on_pause(body):
 	get_tree().set_pause(true)
+	pass
+
+func on_game_win():
+	print('laimejau')
 	pass

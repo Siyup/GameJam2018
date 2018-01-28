@@ -17,6 +17,7 @@ script/script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+dir = 1
 initialSpeed = 40
 rageSpeed = 200
 radius = 120

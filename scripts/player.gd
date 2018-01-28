@@ -2,6 +2,8 @@ extends KinematicBody2D
 export var speed = 120
 signal game_over
 signal pause
+signal game_win
+var locker
 var current_doors = null
 var locker_available = false
 var doors_available = false
@@ -16,10 +18,13 @@ func _fixed_process(delta):
 		emit_signal("pause")
 	if locker_available:
 		if Input.is_action_pressed("interact") && count >= 20:
-			if is_visible():
-				hide()
+			if locker.special_locker:
+				emit_signal("game_win")
 			else:
-				show()
+				if is_visible():
+					hide()
+				else:
+					show()
 			count = 0
 	if doors_available || (current_doors != null && (current_doors.get_pos().x + 5 >= get_pos().x && current_doors.get_pos().x - 5 <= get_pos().x)):
 		if Input.is_action_pressed("interact") && count >= 10:
@@ -31,12 +36,15 @@ func _fixed_process(delta):
 		if dir == 1:
 			get_node("main_sprite").play("walk")
 			get_node("main_sprite").set_flip_h(true)
+			get_node("letter_sprite").set_rot(55*(PI/180))
+			get_node("letter_sprite").set_pos(Vector2(28,6.7))
 		elif dir == -1:
 			get_node("main_sprite").play("walk")
 			get_node("main_sprite").set_flip_h(false)
+			get_node("letter_sprite").set_rot(-55*(PI/180))
+			get_node("letter_sprite").set_pos(Vector2(-28,6.7))
 		else:
 			get_node("main_sprite").stop()
-			get_node("main_sprite").set_frame(0)
 		var motion = move(Vector2(dir*speed*delta, 0))
 	if is_colliding():
 		emit_signal("game_over")
@@ -45,6 +53,7 @@ func _fixed_process(delta):
 
 func on_locker_available(body):
 	locker_available = true
+	locker = body
 	pass
 	
 func on_locker_not_available(body):
@@ -52,7 +61,6 @@ func on_locker_not_available(body):
 	pass
 
 func on_doors_available(body, doors):
-	print(doors.get_pos())
 	current_doors = doors
 	doors_available = true
 	pass

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var initial_pos = Vector2()
-var dir = 1
+export var dir = 1
 var alert = false
 var player
 var playerInRange = false

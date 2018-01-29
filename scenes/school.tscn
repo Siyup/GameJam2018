@@ -6,10 +6,10 @@
 [ext_resource path="res://scenes/doors.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/locker_small.png" type="Texture" id=5]
 [ext_resource path="res://scenes/background.tscn" type="PackedScene" id=6]
-[ext_resource path="res://sprites/lempa.png" type="Texture" id=7]
-[ext_resource path="res://sprites/bell.png" type="Texture" id=8]
-[ext_resource path="res://sprites/cactus.png" type="Texture" id=9]
-[ext_resource path="res://sprites/vazonas.png" type="Texture" id=10]
+[ext_resource path="res://sprites/lempa_small.png" type="Texture" id=7]
+[ext_resource path="res://sprites/bell_small.png" type="Texture" id=8]
+[ext_resource path="res://sprites/cactus_small.png" type="Texture" id=9]
+[ext_resource path="res://sprites/vazonas_small.png" type="Texture" id=10]
 [ext_resource path="res://sprites/langas_small.png" type="Texture" id=11]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/director.tscn" type="PackedScene" id=13]
@@ -79,8 +79,6 @@ transform/pos = Vector2( 147, 548.567 )
 teleport_location = Vector2( 139, 641 )
 
 [node name="background container" type="Node" parent="."]
-
-editor/display_folded = true
 
 [node name="lockers" type="Node" parent="background container"]
 
@@ -184,6 +182,8 @@ texture = ExtResource( 5 )
 
 [node name="backgrounds" type="Node" parent="background container"]
 
+editor/display_folded = true
+
 [node name="background" parent="background container/backgrounds" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 611, 113.75 )
@@ -205,20 +205,17 @@ editor/display_folded = true
 
 [node name="light" type="Sprite" parent="background container/lights"]
 
-transform/pos = Vector2( 594.215, 26.0932 )
-transform/scale = Vector2( 0.035, 0.035 )
+transform/pos = Vector2( 594.215, 31.0932 )
 texture = ExtResource( 7 )
 
 [node name="light1" type="Sprite" parent="background container/lights"]
 
 transform/pos = Vector2( 594, 263.242 )
-transform/scale = Vector2( 0.035, 0.035 )
 texture = ExtResource( 7 )
 
 [node name="light2" type="Sprite" parent="background container/lights"]
 
-transform/pos = Vector2( 594, 490.367 )
-transform/scale = Vector2( 0.035, 0.035 )
+transform/pos = Vector2( 594, 492.367 )
 texture = ExtResource( 7 )
 
 [node name="bells" type="Node" parent="background container"]
@@ -228,19 +225,19 @@ editor/display_folded = true
 [node name="bell" type="Sprite" parent="background container/bells"]
 
 transform/pos = Vector2( 1136.04, 31.809 )
-transform/scale = Vector2( 0.035, 0.035 )
+transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 8 )
 
 [node name="bell1" type="Sprite" parent="background container/bells"]
 
 transform/pos = Vector2( 261.288, 259.016 )
-transform/scale = Vector2( 0.035, 0.035 )
+transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 8 )
 
 [node name="bell2" type="Sprite" parent="background container/bells"]
 
 transform/pos = Vector2( 1147.21, 487.223 )
-transform/scale = Vector2( 0.035, 0.035 )
+transform/scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 8 )
 
 [node name="plants" type="Node" parent="background container"]
@@ -250,25 +247,27 @@ editor/display_folded = true
 [node name="plant" type="Sprite" parent="background container/plants"]
 
 transform/pos = Vector2( 858.445, 130.465 )
-transform/scale = Vector2( 0.035, 0.035 )
+transform/scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 9 )
 
 [node name="plant1" type="Sprite" parent="background container/plants"]
 
 transform/pos = Vector2( 231.353, 582.608 )
-transform/scale = Vector2( 0.035, 0.035 )
+transform/scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 9 )
 
 [node name="plant_2" type="Sprite" parent="background container/plants"]
 
 transform/pos = Vector2( 62.8105, 364.025 )
-transform/scale = Vector2( 0.035, 0.035 )
+transform/scale = Vector2( 0.8, 0.8 )
+z/z = 1
 texture = ExtResource( 10 )
 
 [node name="plant_3" type="Sprite" parent="background container/plants"]
 
-transform/pos = Vector2( 1166.89, 367.247 )
-transform/scale = Vector2( 0.035, 0.035 )
+transform/pos = Vector2( 1165.99, 363.637 )
+transform/scale = Vector2( 0.8, 0.8 )
+z/z = 1
 texture = ExtResource( 10 )
 
 [node name="windows" type="Node" parent="background container"]

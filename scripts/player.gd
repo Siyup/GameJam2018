@@ -1,5 +1,5 @@
 extends KinematicBody2D
-export var speed = 120
+export var speed = 160
 signal game_over
 signal pause
 signal game_win
@@ -22,8 +22,14 @@ func _fixed_process(delta):
 				emit_signal("game_win")
 			else:
 				if is_visible():
+					locker.get_node("eyes").show()
+					locker.get_node("Sprite").hide()
+					locker.get_node("closed").show()
 					hide()
 				else:
+					locker.get_node("eyes").hide()
+					locker.get_node("Sprite").show()
+					locker.get_node("closed").hide()
 					show()
 			count = 0
 	if doors_available || (current_doors != null && (current_doors.get_pos().x + 5 >= get_pos().x && current_doors.get_pos().x - 5 <= get_pos().x)):

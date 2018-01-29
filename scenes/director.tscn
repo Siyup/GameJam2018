@@ -1,10 +1,23 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://scripts/director.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemy.jpg" type="Texture" id=2]
 [ext_resource path="res://scenes/visionarea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/enemycollision.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/diriksQuestionMark.png" type="Texture" id=5]
+[ext_resource path="res://sprites/d/1d.png" type="Texture" id=6]
+[ext_resource path="res://sprites/d/2d.png" type="Texture" id=7]
+[ext_resource path="res://sprites/d/3d.png" type="Texture" id=8]
+[ext_resource path="res://sprites/d/4d.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
 
 [node name="director" type="KinematicBody2D"]
 
@@ -18,12 +31,14 @@ __meta__ = {
 "_edit_group_": true
 }
 dir = 1
+randomNumber = 700
 initialSpeed = 40
-rageSpeed = 200
+rageSpeed = 300
 radius = 120
 
 [node name="main_sprite" type="Sprite" parent="."]
 
+visibility/visible = false
 transform/scale = Vector2( 0.35, 0.35 )
 z/z = 5
 texture = ExtResource( 2 )
@@ -39,5 +54,33 @@ transform/pos = Vector2( 31.0506, -38.6196 )
 transform/scale = Vector2( 0.03, 0.03 )
 z/z = 10
 texture = ExtResource( 5 )
+
+[node name="rageTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="visionTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="animation" type="AnimatedSprite" parent="."]
+
+transform/scale = Vector2( 0.025, 0.025 )
+z/z = 3
+frames = SubResource( 1 )
+animation = "walk"
+frame = 1
+playing = true
+flip_h = true
+
+[connection signal="timeout" from="rageTimer" to="." method="_on_rageTimer_timeout"]
+
+[connection signal="timeout" from="visionTimer" to="." method="_on_visionTimer_timeout"]
 
 

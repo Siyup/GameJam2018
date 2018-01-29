@@ -4,6 +4,10 @@ signal locker_available
 export var special_locker = false
 
 func _ready():
+	if special_locker:
+		get_node("heart").show()
+		get_node("special").show()
+		get_node("Sprite").hide()
 	pass
 
 

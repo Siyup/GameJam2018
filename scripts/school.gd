@@ -5,8 +5,9 @@ func _ready():
 	get_node("player").connect("pause", self, "on_pause")
 	get_node("player").connect("game_win", self, "on_game_win")
 	get_node("HUD").get_node("game_over").get_node("play_again").connect("button_down", self, "on_restart")
-	get_node("director").connect("game_over", self, "on_game_over")
-	get_node("director").get_node("enemycollision").connect("body_enter", self, "on_game_over")
+	for director in get_node("directors container").get_children():
+		director.connect("game_over", self, "on_game_over")
+		director.get_node("enemycollision").connect("body_enter", self, "on_game_over")
 	for locker in get_node("lockers container").get_children():
 		locker.connect("locker_available", get_node("player"), "on_locker_available")
 		locker.connect("body_exit", get_node("player"), "on_locker_not_available")
@@ -42,5 +43,7 @@ func on_pause(body):
 	pass
 
 func on_game_win():
-	print('laimejau')
+	get_tree().set_pause(true)
+	for sprite in get_node("game win").get_children():
+		sprite.show()
 	pass

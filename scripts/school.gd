@@ -31,9 +31,10 @@ func on_game_over(body):
 
 func on_restart():
 	get_node("player").set_pos(Vector2(63,127))
-	get_node("director").alert = false
-	get_node("director").playerInRange = false
-	get_node("director").speed = get_node("director").initialSpeed
+	for director in get_node("directors container").get_children():
+		director.alert = false
+		director.playerInRange = false
+		director.speed = director.initialSpeed
 	get_node("HUD").get_node("game_over").hide()
 	get_tree().set_pause(false)
 	pass

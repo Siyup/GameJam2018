@@ -3,8 +3,8 @@
 [ext_resource path="res://locker.gd" type="Script" id=1]
 [ext_resource path="res://sprites/atidarytaSpintele.png" type="Texture" id=2]
 [ext_resource path="res://sprites/locker_small.png" type="Texture" id=3]
-[ext_resource path="res://akys ir sirdis/akys.png" type="Texture" id=4]
-[ext_resource path="res://akys ir sirdis/sirdute.png" type="Texture" id=5]
+[ext_resource path="res://akys ir sirdis/akys_small.png" type="Texture" id=4]
+[ext_resource path="res://akys ir sirdis/sirdute_small.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -45,14 +45,12 @@ _update_shape_index = 0
 
 visibility/visible = false
 transform/pos = Vector2( 0, -27 )
-transform/scale = Vector2( 0.04, 0.04 )
 z/z = 2
 texture = ExtResource( 4 )
 
 [node name="heart" type="Sprite" parent="."]
 
-visibility/visible = false
-transform/scale = Vector2( 0.02, 0.02 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
 [node name="closed" type="Sprite" parent="."]

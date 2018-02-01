@@ -41,7 +41,7 @@ func _fixed_process(delta):
 			get_node("rage_sprite").show()
 			move(Vector2(motion*newDir.x, 0))
 		else:
-			alert = false
+			move(Vector2(motion * dir, 0))
 	else:
 		randomize_movement(dir)
 		adjust_vision(dir)

@@ -34,11 +34,13 @@ func _fixed_process(delta):
 		get_node("rageTimer").start()
 		motion = rageSpeed * delta
 	if alert:
-		var player_pos = player.get_pos()
-		var newDir = Vector2(player_pos.x - get_pos().x, 0).normalized()
-		get_node("rage_sprite").show()
-		adjust_vision(newDir.x)
-		move(Vector2(motion*newDir.x, 0))
+		if player!= null && player.is_visible():
+			var player_pos = player.get_pos()
+			var newDir = Vector2(player_pos.x - get_pos().x, 0).normalized()
+			get_node("rage_sprite").show()
+			move(Vector2(motion*newDir.x, 0))
+		else:
+			alert = false
 	else:
 		randomize_movement(dir)
 		adjust_vision(dir)

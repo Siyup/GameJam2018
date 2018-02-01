@@ -34,6 +34,7 @@ collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 speed = 70
+floor_number = 3
 
 [node name="collision" type="CollisionShape2D" parent="."]
 

@@ -9,6 +9,8 @@ var locker_available = false
 var doors_available = false
 var count = 20
 var doors_width
+var floor_height = 225
+export var floor_number = 3
 func _ready():
 	doors_width=128*1.1/2
 	set_fixed_process(true)
@@ -36,6 +38,7 @@ func _fixed_process(delta):
 	if doors_available || (current_doors != null && (current_doors.get_pos().x + doors_width >= get_pos().x && current_doors.get_pos().x - doors_width <= get_pos().x)):
 		if Input.is_action_pressed("interact") && count >= 10:
 			set_pos(current_doors.teleport_location)
+			floor_number = get_floor_number()
 			count = 0
 	count += 1
 	if is_visible():
@@ -74,4 +77,8 @@ func on_doors_available(body, doors):
 
 func on_doors_not_available(body):
 	doors_available = false
+	pass
+
+func get_floor_number():
+	return round(get_pos().y/floor_height)
 	pass

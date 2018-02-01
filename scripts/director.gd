@@ -10,6 +10,7 @@ var speed = 40
 export var initialSpeed = 40
 export var rageSpeed = 300
 export var radius = 500
+export var floorNumber = 1
 signal game_over
 
 func _ready():
@@ -34,7 +35,7 @@ func _fixed_process(delta):
 		get_node("rageTimer").start()
 		motion = rageSpeed * delta
 	if alert:
-		if player!= null && player.is_visible():
+		if player!= null && player.is_visible() && player.floor_number == floorNumber:
 			var player_pos = player.get_pos()
 			var newDir = Vector2(player_pos.x - get_pos().x, 0).normalized()
 			get_node("rage_sprite").show()

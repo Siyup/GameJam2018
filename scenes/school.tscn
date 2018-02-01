@@ -25,6 +25,7 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 62.7463, 127.518 )
 speed = 160
+floor_number = 3
 
 [node name="lockers container" type="Node" parent="."]
 
@@ -180,8 +181,6 @@ texture = ExtResource( 5 )
 
 [node name="backgrounds" type="Node" parent="background container"]
 
-editor/display_folded = true
-
 [node name="background" parent="background container/backgrounds" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 611, 113.75 )
@@ -307,6 +306,7 @@ transform/scale = Vector2( 1.51968, 2.0822 )
 one_way_collision/direction = Vector2( 0, 0 )
 dir = -1
 radius = 500
+floorNumber = 2
 
 [node name="director1" parent="directors container" instance=ExtResource( 13 )]
 

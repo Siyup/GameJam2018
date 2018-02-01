@@ -8,8 +8,9 @@ var current_doors = null
 var locker_available = false
 var doors_available = false
 var count = 20
-
+var doors_width
 func _ready():
+	doors_width=128*1.1/2
 	set_fixed_process(true)
 	pass
 
@@ -32,7 +33,7 @@ func _fixed_process(delta):
 					locker.get_node("closed").hide()
 					show()
 			count = 0
-	if doors_available || (current_doors != null && (current_doors.get_pos().x + 5 >= get_pos().x && current_doors.get_pos().x - 5 <= get_pos().x)):
+	if doors_available || (current_doors != null && (current_doors.get_pos().x + doors_width >= get_pos().x && current_doors.get_pos().x - doors_width <= get_pos().x)):
 		if Input.is_action_pressed("interact") && count >= 10:
 			set_pos(current_doors.teleport_location)
 			count = 0

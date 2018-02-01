@@ -57,8 +57,6 @@ transform/pos = Vector2( 395.454, 550.459 )
 
 [node name="doors container" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="doors" parent="doors container" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 920, 93.226 )

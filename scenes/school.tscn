@@ -25,7 +25,6 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 62.7463, 127.518 )
 speed = 160
-floor_number = 3
 
 [node name="lockers container" type="Node" parent="."]
 

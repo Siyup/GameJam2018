@@ -35,6 +35,8 @@ func _fixed_process(delta):
 		get_node("rageTimer").start()
 		motion = rageSpeed * delta
 	if alert:
+		print(player.floor_number)
+		print(floorNumber)
 		if player!= null && player.is_visible() && player.floor_number == floorNumber:
 			var player_pos = player.get_pos()
 			var newDir = Vector2(player_pos.x - get_pos().x, 0).normalized()

@@ -76,7 +76,7 @@ transform/scale = Vector2( 0.025, 0.025 )
 z/z = 3
 frames = SubResource( 1 )
 animation = "walk"
-frame = 3
+frame = 2
 playing = true
 flip_h = true
 

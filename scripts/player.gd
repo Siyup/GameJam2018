@@ -80,5 +80,5 @@ func on_doors_not_available(body):
 	pass
 
 func get_floor_number():
-	return round(get_pos().y/floor_height)
+	return 4 - round(get_pos().y/floor_height)
 	pass
